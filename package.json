@@ -1,0 +1,32 @@
+{
+  "name": "blizzard-ec",
+  "version": "1.0.0",
+  "description": "Blizzard Extra Credit Coding Challenge - SRE Intern",
+  "main": "index.js",
+  "bin": {
+    "blizzec": "bin/blizzec"
+  },
+  "scripts": {
+    "test": "mocha tests.js --reporter min --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guppy0130/blizzard-ec.git"
+  },
+  "author": "guppy0130",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guppy0130/blizzard-ec/issues"
+  },
+  "homepage": "https://github.com/guppy0130/blizzard-ec#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.4.2"
+  }
+}

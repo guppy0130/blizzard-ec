@@ -4,3 +4,24 @@
 2. Write a simple test application that will query this “API” X times per second and record success/failure/TTLB (Time to last byte).
 3. Perform a blue-green deploy with the method/technology of your choosing while the test application is running and demonstrate there were no failed requests.
     1. Go from a single instance of v1 to a single instance of v2 gracefully.
+
+## Web Application
+
+Run `npm start` to run `server.js`. Hitting the `/` endpoint returns something similar to this:
+
+```json
+{
+    "date": "2019-02-02T23:28:49.335Z"
+}
+```
+
+## Client
+
+Run with:
+
+```bash
+node ./client.js [url] [number]
+```
+
+* `[url]` is the URL to access.
+* `[number]` is an integer that describes how many times to hit the server.
