@@ -2,18 +2,22 @@
 let supertest = require('supertest');
 const assert = require('assert');
 supertest = supertest('http://localhost:3000');
-require('./server');
+let server;
+
+before(function() {
+    server = require('./server'); // start the server
+});
 
 describe('GET /', function() {
-    it('should return info', function () {
+    it('should return time within 5s', function () {
         const time = new Date();
         return supertest
             .get('/')
-            .expect(200)
-            .expect('Content-Type', /json/)
+            .expect(200) // expect it to hit
+            .expect('Content-Type', /json/) // expect JSON response
             .then(response => {
-                console.log(response.body.date - time);
-                assert.ok(response.body['date'] - time < new Date(0, 0, 0, 0, 1));
+                const serverDate = new Date(response.body.date);
+                assert.ok(serverDate - time < 1000 * 5); // server returned date close enough to target (delta 5s)
             });
     });
 });
@@ -22,6 +26,10 @@ describe('GET /nonexistent', function() {
     it('404s everything else', function() {
         return supertest
             .get('/nonexistent')
-            .expect(404);
+            .expect(404); // expect it to not hit and 404
     });
+});
+
+after(function() {
+    server.close(); // close the server and let the process end
 });
