@@ -7,7 +7,8 @@
     "blizzec": "bin/blizzec"
   },
   "scripts": {
-    "test": "mocha tests.js --reporter min --watch"
+    "test": "mocha tests.js",
+    "test:active": "mocha tests.js --reporter min --watch"
   },
   "repository": {
     "type": "git",
