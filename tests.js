@@ -5,7 +5,7 @@ supertest = supertest('http://localhost:3000');
 let server;
 
 before(function() {
-    server = require('./server'); // start the server
+    server = require('./index'); // start the server
 });
 
 describe('GET /', function() {

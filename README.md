@@ -28,3 +28,13 @@ node ./client.js [url] [number]
 
 * `[url]` is the URL to access.
 * `[number]` is an integer at least 1 that describes how many times to test per second
+
+## Blue-Green Deployment
+
+Handled through `now.sh`. `v1` deployment at `nickyang-blizzec.now.sh`. To migrate to `v2`:
+
+```bash
+now alias nickyang-blizzec-a3e1ac049.now.sh nickyang-blizzec.now.sh
+```
+
+Be sure to run `node ./client.js nickyang-blizzec.now.sh <int>` beforehand to watch the output for the change in `VER:`; this demonstrates migration.
