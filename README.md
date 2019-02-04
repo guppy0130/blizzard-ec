@@ -13,7 +13,8 @@ Run `npm start` to run `server.js`. Hitting the `/` endpoint returns something s
 
 ```json
 {
-    "date": "2019-02-02T23:28:49.335Z"
+    "date": "2019-02-02T23:28:49.335Z",
+    "version": "1"
 }
 ```
 

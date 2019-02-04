@@ -9,7 +9,7 @@ before(function() {
 });
 
 describe('GET /', function() {
-    it('should return time within 5s', function () {
+    it('should return time within 5s', function() {
         const time = new Date();
         return supertest
             .get('/')
@@ -18,6 +18,15 @@ describe('GET /', function() {
             .then(response => {
                 const serverDate = new Date(response.body.date);
                 assert.ok(serverDate - time < 1000 * 5); // server returned date close enough to target (delta 5s)
+            });
+    });
+
+    it('should have a version', function() {
+        return supertest
+            .get('/')
+            .expect(200)
+            .then(response => {
+                assert.ok(response.body.version.match(/v\d/)); // version should not be empty
             });
     });
 });
