@@ -26,4 +26,4 @@ node ./client.js [url] [number]
 ```
 
 * `[url]` is the URL to access.
-* `[number]` is an integer that describes how many times to hit the server.
+* `[number]` is an integer at least 1 that describes how many times to test per second
